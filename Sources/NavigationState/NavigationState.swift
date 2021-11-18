@@ -32,7 +32,7 @@ open class NavigationState<State: Equatable>: ObservableObject {
 }
 
 extension NavigationLink where Label == EmptyView {
-    public init<Value>(item: Binding<Value?>, @ViewBuilder destination: (Value?) -> Destination) {
+    init<Value>(item: Binding<Value?>, @ViewBuilder destination: (Value?) -> Destination) {
         let isActive = Binding<Bool> (
             get: { return item.wrappedValue != nil ? true : false },
             set: { if !$0 { item.wrappedValue = nil } }
@@ -52,7 +52,7 @@ extension View {
 }
 
 extension View {
-    public func sheet<Value, Content: View>(
+    func sheet<Value, Content: View>(
         item: Binding<Value?>,
         onDismiss: (() -> Void)? = nil,
         @ViewBuilder content: @escaping (Value?) -> Content
@@ -67,7 +67,7 @@ extension View {
     
     @available(iOS 14, watchOS 7, tvOS 14, macCatalyst 14, *)
     @available(macOS, unavailable)
-    public func fullScreenCover<Value, Content: View>(
+    func fullScreenCover<Value, Content: View>(
         item: Binding<Value?>,
         onDismiss: (() -> Void)? = nil,
         @ViewBuilder content: @escaping (Value?) -> Content
@@ -80,7 +80,7 @@ extension View {
     }
 }
 
-public struct NavigationViewModifier<Value, Child: View>: ViewModifier {
+struct NavigationViewModifier<Value, Child: View>: ViewModifier {
     
     let type: NavigationType?
     let item: Binding<Value?>
@@ -91,7 +91,7 @@ public struct NavigationViewModifier<Value, Child: View>: ViewModifier {
     let sheetItem: Binding<Value?>
     let fullScreenItem: Binding<Value?>
     
-    public init(
+    init(
         type: NavigationType?,
         item: Binding<Value?>,
         onDismiss: (() -> Void)? = nil,
@@ -107,7 +107,7 @@ public struct NavigationViewModifier<Value, Child: View>: ViewModifier {
         self.fullScreenItem = type == .fullScreen ? item : .constant(nil)
     }
     
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         ZStack {
             content
         }

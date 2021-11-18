@@ -8,10 +8,10 @@
 import SwiftUI
 
 public struct HashableAnyView {
-    let id: UUID
-    let view: AnyView
+    public let id: UUID
+    public let view: AnyView
     
-    init(id: UUID = UUID(), _ view: AnyView) {
+    public init(id: UUID = UUID(), _ view: AnyView) {
         self.id = id
         self.view = view
     }

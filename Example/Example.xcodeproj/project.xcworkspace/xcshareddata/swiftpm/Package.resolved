@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "NavigationState",
+        "repositoryURL": "https://github.com/AlexeyGorbunov/navigation-state-swiftui",
+        "state": {
+          "branch": null,
+          "revision": "acbc175e0face9e3e03bac01ccd37404bfa7295f",
+          "version": "1.0.5"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

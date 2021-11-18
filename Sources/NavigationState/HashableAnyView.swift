@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HashableAnyView {
+public struct HashableAnyView {
     let id: UUID
     let view: AnyView
     

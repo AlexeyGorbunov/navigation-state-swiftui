@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 
-public class NavigationState<State: Equatable>: ObservableObject {
+open class NavigationState<State: Equatable>: ObservableObject {
     
     @Published public var presentType: NavigationType?
     @Published public var state: State? {
